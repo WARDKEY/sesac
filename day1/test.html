@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>hello!</h1>
+
+    <a href="https://nestjs.com/" target="_blank">방문하기</a>
+
+    <h1>이름 : 홍길동</h1>
+    <p>
+      안녕하세요! <strong>웹 개발자</strong>를 꿈꾸고 있어요. <br />
+      <em>지금은 HTML 배우는 중입니다.</em>
+    </p>
+
+    <h2>좋아하는 음식</h2>
+    <!-- 순서 없는 목록 -->
+    <ul>
+      <li>떡볶이</li>
+      <li>치킨</li>
+      <li>라면</li>
+    </ul>
+
+    <h2>해야 할 일</h2>
+    <!-- 순서 있는 목록 -->
+    <ol>
+      <li>LOL 1승</li>
+      <li>HTML 복습</li>
+      <li>CSS 예습</li>
+    </ol>
+
+    <!-- target="_blank"는 새 탭에서 열기 -->
+    <a href="https://naver.com" target="_blank" title="네이버 바로가기"></a>
+
+    <a href="https://codingon.co.kr/" target="_blank">
+      <img
+        src="https://codingon.co.kr/_next/image?url=%2Fimage%2Flogo%2Fsmall%2Fcodingon-logo-wide.webp&w=256&q=100"
+        alt="로고"
+      />
+    </a>
+
+    <form action="/submit" method="post"></form>
+
+    <table border="1">
+      <caption>
+        회원 정보
+      </caption>
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>이메일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>홍길동</td>
+          <td>hong@example.com</td>
+        </tr>
+        <tr>
+          <td>김영희</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>인라인 요소</h2>
+    <div style="background-color: lightblue">SPAN1</div>
+    <div style="background-color: lightgreen">SPAN2</div>
+    <a href="#" style="background-color: pink">LINK</a>
+    <strong style="background-color: orange">STRONG</strong>
+
+    <h2>블록 요소</h2>
+    <span style="background-color: lightblue">DIV1</span>
+    <p style="background-color: lightgreen">P2</p>
+    <ul style="background-color: lightyellow">
+      <li>항목 1</li>
+      <li>항목 2</li>
+    </ul>
+    <h3 style="background-color: lavender">제목입니다</h3>
+
+    <!-- 시맨틱 태그는 태그 이름만으로 의미를 파악할 수 있는 태그
+ 장점 : 코드 가독성 향상, 검색 엔진 최적화(SEO) -->
+    <header>
+      <h1>내 블로그</h1>
+      <nav>
+        <a href="/">홈</a>
+        <a href="/about">소개</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>최신 글</h2>
+        <article>
+          <h3>HTML 시맨틱 태그란?</h3>
+          <p>웹 구조를 명확하게 해주는 태그입니다.</p>
+        </article>
+      </section>
+    </main>
+
+    <aside>
+      <h3>광고</h3>
+      <p>이 공간은 광고입니다.</p>
+    </aside>
+
+    <footer>
+      <p>&copy; 2025 나의 블로그</p>
+    </footer>
+
+    <!-- hr은 수평으로 된 글 -->
+    <div>hr 사용 전</div>
+    <hr>
+    <div>hr 사용 후</div>
+  </body>
+</html>
