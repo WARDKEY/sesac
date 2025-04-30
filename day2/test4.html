@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Overflow 비교</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 100px;
+        margin-bottom: 20px;
+        background: #e1bee7;
+        padding: 10px;
+      }
+      .visible {
+        overflow: visible;
+      }
+      .hidden {
+        overflow: hidden;
+      }
+      .scroll {
+        overflow: scroll;
+      }
+      .auto {
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 박스를 넘어감 -->
+    <h2>Visible (기본값)</h2>
+    <div class="box visible">
+      텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트
+    </div>
+
+    <!-- 박스를 넘어가지 않음 -->
+    <h2>Hidden</h2>
+    <div class="box hidden">
+      텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트
+    </div>
+
+    <!-- 박스 내부 스크롤 -->
+    <h2>Scroll</h2>
+    <div class="box scroll">
+      텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트
+    </div>
+
+    <!-- 자동으로 스크롤 -->
+    <h2>Auto</h2>
+    <div class="box auto">
+      텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트
+    </div>
+  </body>
+</html>
