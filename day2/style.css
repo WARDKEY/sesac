@@ -1,0 +1,16 @@
+h1 {
+  color: magenta;
+  font-family: Arial, sans-serif;
+}
+
+.purple{
+background-color: purple;
+  width: 210px;
+  height: 30px;
+}
+
+#navy{
+  background-color: navy;
+  width: 180px;
+  height: 30px;
+}

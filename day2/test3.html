@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .block {
+        display: block;
+        width: 200px;
+        background: #90caf9;
+      }
+      .inline-block {
+        display: inline-block;
+        width: 150px;
+        background: #ffcc80;
+      }
+      .flex-container {
+        display: flex;
+        background: #a5d6a7;
+        gap: 10px;
+        padding: 10px;
+      }
+      .flex-item {
+        background: #ce93d8;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- inherit를 사용하면 부모의 스타일을 강제로 상속 받음 -->
+    <div style="border: 2px solid black">
+      <p style="border: inherit">이 문장은 부모의 border 스타일을 상속받음</p>
+    </div>
+    <br />
+    <div style="border: 2px solid black">
+      <p>이 문장은 부모의 border 스타일을 상속 받지 않음</p>
+    </div>
+
+    <!-- display : 블록, 인라인 요소에 관계없이 지정 가능 -->
+    <h2>Block</h2>
+    <div class="block">Block 요소 (한 줄 전체 차지)</div>
+
+    <h2>Inline-Block</h2>
+    <span class="inline-block">Inline-Block 1</span>
+    <span class="inline-block">Inline-Block 2</span>
+
+    <!-- Flex : 부모가 자식들을 수평(기본)으로 정렬, 간격 조정(gap) -->
+    <h2>Flex</h2>
+    <div class="flex-container">
+      <div class="flex-item">Flex Item 1</div>
+      <div class="flex-item">Flex Item 2</div>
+      <div class="flex-item">Flex Item 3</div>
+    </div>
+  </body>
+</html>
