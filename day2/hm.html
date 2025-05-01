@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background-color: grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 1%;
+        width: 700px;
+        height: 350px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, auto));
+      }
+
+      .name {
+        margin-left: 40px;
+        margin-top: 20px;
+      }
+
+      .position {
+        margin-bottom: 30px;
+      }
+
+      .company_logo {
+        display: flex;
+        justify-content: flex-end;
+        align-items: start;
+      }
+
+      .company_info {
+        margin-left: 40px;
+      }
+
+      .info {
+        font-size: small;
+      }
+
+      p {
+        margin: 5px;
+      }
+
+      h1 {
+        margin-bottom: 5px;
+      }
+
+      h3 {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="name">
+          <h1>서근엽</h1>
+          <p class="position">사원 | 백엔드 개발자</p>
+          <p><strong>전화번호</strong> : 010 7165 1960</p>
+          <p><strong>이메일</strong> : tjrmsduq@naver.com</p>
+        </div>
+        <div class="company_logo">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiwR3N-UDYF9PxqfLCpN2wYNjl_Jlb9jnKi1hG_1tCzASnyGJKhYivIoy0A87kveJrbJE&usqp=CAU"
+            alt="200px"
+            width="200px"
+          />
+        </div>
+        <div class="company_info">
+          <h3>청년취업사관학교 <새싹></h3>
+          <p class="info">
+            <strong>주소</strong> : 서울특별시 영등포구 선유로9길 30 106동
+          </p>
+          <p class="info">
+            <strong>홈페이지</strong> : https://sessac.seoul.kr
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
