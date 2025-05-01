@@ -5,116 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .song {
-        font-weight: bold;
-        
+      .song_box {
+        display: flex;
+
+        align-items: center;
+        gap: 20px;
       }
 
-      .song:hover{
+      .song_box:hover {
         background-color: aliceblue;
+        border-radius: 8px;
+      }
+
+      .song {
+        font-weight: bold;
+        font-size: large;
       }
 
       .year {
-        color: grey;
+        color: lightgray;
         font-size: small;
       }
 
-      .singer.busker {
-        color: hotpink;
+      .singer {
+        color: grey;
         font-weight: normal;
       }
-
-      .singer.cryingnut{
-        color: sandybrown;
-        font-weight: normal;       
+      img {
+        border-radius: 8px;
       }
-
-      .singer.changkiha{
-        color: darkgreen;
-        font-weight: normal;
+      ul {
+        list-style-type: none;
       }
-
-      .singer.oasis{
-        color: royalblue;
-        font-weight: normal;
-      }
-
-
-      
     </style>
   </head>
   <body>
     <ul>
       <li>
-        <p class="song">
-          첫사랑 <span class="year">2012</span><br />
-          <span class="singer busker">버스커버스커</span><br />
+        <div class="song_box">
           <img
             src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150313_76%2Fjeil00708_1426213144559xgtyd_PNG%2F2015-03-13_11%253B18%253B38.PNG&type=sc960_832"
             alt=""
             width="150px"
           />
-        </p>
+          <p>
+            <span class="song">첫사랑</span> <br /><span class="year">2012</span
+            ><br />
+            <span class="singer">버스커버스커</span>
+          </p>
+        </div>
       </li>
       <li>
-        <p class="song">
-          좋지 아니한가 <span class="year">2007</span><br />
-          <span class="singer cryingnut">크라잉넛</span><br />
+        <div class="song_box">
           <img
             src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA4MDNfMTY5%2FMDAxNzIyNjYxMTAyNDcz.hdyxrepp_vrR0YJsc_G7Rjv2mf2YY-xfOZEILHTezBcg.9ABVYCb5WxDUUwgxiw3hG1w7H7veksOhvIDD_1ksZ3Mg.JPEG%2F1722661099341.jpg&type=sc960_832"
             alt=""
             width="150px"
           />
-        </p>
+          <p>
+            <span class="song">좋지 아니한가</span><br />
+            <span class="year">2007</span><br />
+            <span class="singer">크라잉넛</span>
+          </p>
+        </div>
       </li>
       <li>
-        <p class="song">
-          다죽자 <span class="year">1999</span><br />
-          <span class="singer cryingnut">크라잉넛</span><br />
+        <div class="song_box">
           <img
             src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140321_209%2Fdedelind_1395407791369NC9Yi_JPEG%2F3699285330_4209abc9_3699285330_274ad383_2089353330_078c73f1_2C1FD.jpg&type=sc960_832"
             alt=""
             width="150px"
           />
-        </p>
+          <p>
+            <span class="song">다죽자</span> <br />
+            <span class="year">1999</span><br />
+            <span class="singer">크라잉넛</span>
+          </p>
+        </div>
       </li>
       <li>
-        <p class="song">
-          나란히 나란히 <span class="year">2018</span><br />
-          <span class="singer changkiha">장기하와 얼굴들</span><br />
+        <div class="song_box">
           <img
             src="https://image.bugsm.co.kr/album/images/500/202026/20202674.jpg"
             alt=""
             width="150px"
           />
-        </p>
+          <p>
+            <span class="song">나란히 나란히</span><br />
+            <span class="year">2018</span><br />
+            <span class="singer">장기하와 얼굴들</span>
+          </p>
+        </div>
       </li>
       <li>
-        <p class="song">
-          Don't Look Back in Anger <span class="year">1995</span><br />
-          <span class="singer oasis">Oasis</span><br />
+        <div class="song_box">
           <img
             src="https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c"
             alt=""
             width="150px"
           />
-        </p>
+          <p>
+            <span class="song">Don't Look Back in Anger</span><br />
+            <span class="year">1995</span><br />
+            <span class="singer">Oasis</span>
+          </p>
+        </div>
       </li>
     </ul>
   </body>
 </html>
-
-<!-- 
-> ✏️ 기본 미션
-> 
-> - 좋아하는 노래 리스트를 ul/li 구조로 5개 이상 만들기
-> - 노래 제목은 **굵게(bold)**
-> - 가수 이름은 **잘보이는 색으로 변경**
-> - 발매 연도는 **회색(silver)** 텍스트로 작게 표시
-
-> 📸 추가 미션
-> 
-> - 1개 이상 노래에 **앨범 커버 이미지를 삽입**할 것
-> - 이미지 크기는 가로 150px로 제한
-> - 노래 항목에 **hover** 하면 배경색 살짝 변경
--->
