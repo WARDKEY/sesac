@@ -1,0 +1,127 @@
+.container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-areas:
+    "header header header"
+    "main   main   main"
+    "footer footer footer";
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  grid-area: header;
+  background-color: slateblue;
+  justify-content: start;
+  align-items: center;
+  border-bottom: gainsboro solid;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  border-top: #f7f7f7 solid;
+}
+
+.movie_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 30px;
+  background-color: #dce0e9;
+  max-width: calc(15vw * 4 + 30px * 3 + 40px);
+  margin: 0 auto;
+  height: 80vh;
+  padding-top: 40px;
+}
+
+.foster {
+  width: 13vw;
+  height: 33vh;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.foster:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  opacity: 0.8;
+  -webkit-filter: grayscale(100%) blur(3px);
+  filter: grayscale(50%) blur(1px);
+}
+
+main a {
+  text-decoration: none;
+}
+
+.movie_name {
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  color: black;
+}
+
+.movie_site_name {
+  font-weight: 700;
+  font-size: 40px;
+  color: azure;
+  margin-left: 20px;
+}
+
+.search_box {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 500px;
+  background: #f3f4f7;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid #f3f4f7;
+  margin-left: 350px;
+}
+
+.search_box i {
+  font-size: 16px;
+  color: #818799;
+  margin-right: 20px;
+}
+
+.search_text {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0px;
+  color: #a8aebd;
+  font-size: 16px;
+  line-height: 30px;
+  width: 200px;
+}
+
+.login {
+  margin-left: 550px;
+  color: azure;
+}
+
+.sign_up {
+  margin-left: 50px;
+  color: azure;
+}
+
+.info {
+  color: gray;
+  font-weight: 400;
+  margin-left: 20px;
+}
