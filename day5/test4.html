@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM 조작 예제</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+        margin-bottom: 10px;
+        transition: all 0.3s;
+      }
+
+      .highlight {
+        border: 3px solid crimson;
+      }
+
+      .rounded {
+        border-radius: 12px;
+      }
+
+      .dark {
+        background-color: #444;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="title">DOM 실습</h1>
+    <div id="box">박스</div>
+
+    <button onclick="toggleContent()">내용 토글</button>
+    <button onclick="toggleAttr()">속성 토글</button>
+    <button onclick="toggleStyle()">스타일 변경</button>
+    <button onclick="addClass()">클래스 추가</button>
+    <button onclick="removeClass()">클래스 제거</button>
+    <button onclick="toggleClass()">클래스 토글</button>
+    <button onclick="addElement()">요소 추가</button>
+    <button onclick="removeElement()">요소 삭제</button>
+
+    <script>
+      const title = document.getElementById("title");
+      const box = document.getElementById("box");
+
+      let addedElement = null;
+      let contentToggled = false;
+      let attrToggled = false;
+
+      // 1. 내용 토글
+      function toggleContent() {
+        if (!contentToggled) {
+          title.innerHTML = "<mark>DOM 변경 완료</mark>"; // 내부에 <mark>라는 element 추가
+          box.textContent = "텍스트만 출력 (textContent)";
+        } else {
+          title.textContent = "DOM 실습"; // 내부에 string만 추가 <요소>적어도 문자로 인식
+          box.textContent = "박스";
+        }
+        contentToggled = !contentToggled;
+      }
+
+      // 2. 속성 토글
+      function toggleAttr() {
+        if (!attrToggled) {
+          box.setAttribute("title", "여기에 마우스를 올려보세요!"); //  box에 title이라는 속성 추가
+        } else {
+          box.removeAttribute("title");
+        }
+        attrToggled = !attrToggled;
+      }
+
+      // 3. 스타일 변경 (직접 style 조작)
+      function toggleStyle() {
+        box.style.backgroundColor =
+          box.style.backgroundColor === "orange" ? "skyblue" : "orange"; // box의 배경색이 오렌지면 스카이 블루로 변경
+      }
+
+      // 4. 클래스 추가
+      function addClass() {
+        box.classList.add("highlight", "rounded"); // box에 highlight rounded라는 클래스 추가
+      }
+
+      // 5. 클래스 제거
+      function removeClass() {
+        box.classList.remove("highlight", "rounded", "dark");
+      }
+
+      // 6. 클래스 토글
+      function toggleClass() {
+        box.classList.toggle("dark"); // dark라는 클래스 추가 및 제거
+      }
+
+      // 7. 요소 추가
+      function addElement() {
+        if (!addedElement) {
+          addedElement = document.createElement("p"); // 새로운 html 요소 지정하고
+          addedElement.textContent = "새로운 요소가 추가되었어요!"; // 내부 text 설정
+          document.body.appendChild(addedElement); // body의 자식으로 마지막 부분에 추가
+        }
+      }
+
+      // 8. 요소 삭제
+      function removeElement() {
+        if (addedElement) {
+          document.body.removeChild(addedElement); // body의 자식에 addedElement 요소 삭제
+          addedElement = null;
+        }
+      }
+    </script>
+  </body>
+</html>

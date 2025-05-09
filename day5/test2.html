@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>body 끝에 script</title>
+  </head>
+  <body>
+    <button id="myBtn">버튼</button>
+    <br />
+    <button onclick="alert('버튼이 클릭되었습니다!')">클릭</button>
+    <button onclick="test()">클릭</button>
+    <script>
+      const btn = document.getElementById("myBtn");
+      console.log(btn); // <button> 요소 정상 출력
+      function test() {
+        alert("버튼이 클릭됨");
+      }
+    </script>
+  </body>
+</html>
