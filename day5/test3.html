@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>외부 스크립트</title>
+    <!-- head에 외부 자바스크립트를 넣으면 html 본문 생성 전에 미리 로딩돼서 오류 -->
+    <!-- defer async 넣으면 제대로 동작하는데 그냥 body에 쓰면됨 -->
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <h1>자바스크립트 분리</h1>
+    <button id="myBtn">클릭</button>
+    <script>
+      const title = document.querySelector("h1");
+      console.log(title.parentNode);
+      console.log(title.childNodes);
+    </script>
+  </body>
+</html>

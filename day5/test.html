@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>역할 분리 예제</title>
+
+    <!-- CSS: 디자인만 담당 -->
+    <style>
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: skyblue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* 버튼이 클릭된 상태 */
+      .clicked {
+        background-color: crimson;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 구조는 그대로 유지 -->
+    <h1>HTML + CSS + JS 역할 분리</h1>
+    <button id="colorBtn">색 바꾸기</button>
+    <button id="myBtn">버튼</button>
+
+    <!-- JavaScript: 동작 처리 -->
+    <script>
+      const button = document.getElementById("colorBtn");
+      button.addEventListener("click", function () {
+        // 클릭 시 clicked 클래스 토글 -> 배경색 바뀜
+        this.classList.toggle("clicked");
+      });
+    </script>
+  </body>
+</html>
