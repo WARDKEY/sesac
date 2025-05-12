@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 페이지 실습</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+
+      #main {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #666;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #26a743;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background-color: #1e8033;
+      }
+
+      #nameInput {
+        padding: 8px 0px 8px 8px;
+        width: 150px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main">
+      <h1>나의 첫 웹 페이지</h1>
+      <p id="message">버튼을 클릭해보세요!</p>
+      <input type="text" placeholder="이름" id="nameInput" />
+      <button onclick="changeText()">인사하기</button>
+    </div>
+
+    <script>
+      function changeText() {
+        const name = document.getElementById("nameInput").value;
+        const message = document.getElementById("message");
+
+        if (name.trim() === "") {
+          message.textContent = "이름을 입력해주세요!";
+        } else {
+          message.textContent = `안녕하세요, ${name}님!`;
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 
+1. 사용자 입력받은 값을 추가 하기
+    - 사용자 이름을 입력하고 "인사하기" 버튼 클릭 시:
+    - 입력된 이름을 기반으로 "안녕하세요, (이름)님!" 출력
+    - 이름을 입력하지 않으면 "이름을 입력해주세요!" 출력
+-->
