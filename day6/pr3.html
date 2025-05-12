@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      label {
+        font-weight: bold;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .input_box {
+        padding: 10px 10px 10px 0;
+        padding-left: 10px;
+        border-radius: 5px;
+        border: solid 1px #b5b5b5;
+      }
+
+      #container {
+        background-color: white;
+        width: 20em;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.233);
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        width: 18em;
+      }
+
+      .btn {
+        padding: 10px 0 10px 0;
+        margin-top: 5px;
+        background-color: #4bb052;
+        border-radius: 5px;
+        border: solid 1px #b5b5b5;
+        color: white;
+      }
+
+      @media (max-width: 400px) {
+        #container {
+          background-color: white;
+          width: 20em;
+          display: flex;
+          justify-content: center;
+          border-radius: 5px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.233);
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .box {
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          width: 18em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>구글 폼 클론 - 사용자 설문지</h1>
+    <div id="container">
+      <form action="">
+        <div class="box name">
+          <label for="name">이름:</label>
+          <input
+            type="text"
+            id="name"
+            class="input_box"
+            placeholder="이름을 입력하세요"
+          />
+        </div>
+        <div class="box email">
+          <label for="email">이메일:</label>
+          <input
+            type="email"
+            id="email"
+            class="input_box"
+            placeholder="exampl@gmail.com"
+          />
+        </div>
+        <div class="box phone">
+          <label for="phone">전화번호:</label>
+          <input
+            type="text"
+            id="phone"
+            class="input_box"
+            placeholder="010-1234-5678"
+          />
+        </div>
+
+        <div class="box gender">
+          <label for="gender">성별:</label>
+          <select name="" id="gender" class="input_box">
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+          </select>
+        </div>
+
+        <div class="box admit">
+          <label for="admit">이용 약관에 동의:</label>
+          <input type="checkbox" id="admit" class="input_box" />
+        </div>
+
+        <div class="box submit">
+          <button type="submit" class="btn" id="submitBtn">제출하기</button>
+          <button type="submit" class="btn">추가 질문 추가</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      //       document
+      //         .getElementById("submitBtn")
+      //         .addEventListener("click", function () {
+      //           const $name = document.getElementById("name").value;
+      //           const $email = document.getElementById("email").value;
+      //           alert(`설문지 제출 완료!
+      // 이름: ${$name}
+      // 이메일: ${$email}`);
+      //         });
+
+      // form 태그의 submit 이벤트가 발생할 떼 동작
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // 기본적인 form의 submit 막음
+          const $name = document.getElementById("name").value;
+          const $email = document.getElementById("email").value;
+          const $phone = document.getElementById("phone").value;
+          const $admit = document.getElementById("admit").checked;
+
+          if (!$name || !$email || !$phone || !$admit) {
+            alert("입력값을 확인하세요.");
+            return;
+          }
+
+          alert(
+            `설문지 제출 완료! \n이름: ${$name}\n이메일: ${$email}\n전화번호: ${$phone}`
+          );
+        });
+    </script>
+  </body>
+</html>
