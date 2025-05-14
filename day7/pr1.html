@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container-mt4">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Bootstrap Dashboard</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="collapsibleNavbar"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">대시보드</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">사용자 목록</a>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  사용자 추가
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                사용자 추가
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="form">
+                <div class="mb-3">
+                  <label for="username" class="col-form-label"
+                    >사용자 이름</label
+                  >
+                  <input type="text" class="form-control" id="username" />
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">상태</label>
+                  <select name="" id="state" class="form-control">
+                    <option value="활성">활성</option>
+                    <option value="비활성">비활성</option>
+                  </select>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  닫기
+                </button>
+                <button type="submit" class="btn btn-primary plus">입력</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-auto w-75"><h2 class="mt-4">대시보드</h2></div>
+      <div class="row row-cols-1 row-cols-sm-3 g-4 mx-auto w-75">
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">총 사용자</h5>
+              <p class="card-text" id="all">0명</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title" id="user">일반 사용자</h5>
+              <p class="card-text">0명</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">메시지 전송</h5>
+              <p class="card-text">0명</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-auto w-75">
+        <h2 class="mt-4 text-start">사용자 목록</h2>
+      </div>
+
+      <ul class="list-group col-sm-9 mx-auto" id="list">
+        <li class="list-group-item list-group-item-action">
+          사용자가 없습니다.
+        </li>
+      </ul>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const $form = document.getElementById("form");
+          const $list = document.getElementById("list");
+          form.addEventListener("submit", function (event) {
+            const $username = document.getElementById("username").value;
+            const $state = document.getElementById("state").value;
+            let $all = document.getElementById("all").value;
+            let $user = document.getElementById("user").value;
+            event.preventDefault();
+            let $allpeople = document
+              .getElementById("all")
+              .textContent;
+            let $people = document
+              .getElementById("user")
+              .textContent;
+            event.preventDefault();
+            if ($username) {
+              const $listItem = document.createElement("li");
+              $listItem.classList.add("list-group-item");
+              $listItem.classList.add("list-group-item-action");
+              $listItem.innerHTML = `
+              <strong>${$username} - ${$state}</strong>`;
+              $list.appendChild($listItem);
+              console.log($listItem);
+
+              console.log("사용자 추가");
+            }
+
+            if ($state.trim() === "활성") {
+              $all ;
+              $user ;
+              $allpeople = `${$all}명`;
+              $people = `${$user}명`;
+              console.log($user);
+            } else {
+              $all++;
+              $allpeople = `${$all}명`;
+            }
+            const modal = bootstrap.Modal.getInstance(
+              document.getElementById("exampleModal")
+            );
+            modal.hide();
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("googleForm");
   const messageList = document.getElementById("messageList");
 
+  // 함수 내부의 함수는 변수처럼 다루어지며, 함수 내부의 변수는 함수가 호출될 때 존재한다.
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const username = document.getElementById("username").value;
@@ -50,8 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 폼 초기화 버튼
-
 function clearForm() {
-  const list = document.getElementById("messageList");
-  list.removeChild(list.lastElementChild);
+  const lastMessage = messageList.lastElementChild;
+  if (lastMessage) {
+    messageList.removeChild(lastMessage);
+  } else {
+    alert("삭제할 메시지가 없습니다.");
+  }
 }
