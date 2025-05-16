@@ -134,16 +134,13 @@ function add() {
   };
 
   const $li = document.createElement("li");
-    $li.classList.add("list-group-item");
-    $li.innerHTML = `<div class="card text-start"">
+  $li.classList.add("list-group-item");
+  $li.innerHTML = `<div class="card text-start"">
 <div class="card-body">
   <h5 class="card-title">${Object.keys(songDetails).length}. ${$songName}</h5>
   <p class="card-text">artist : ${$singer}</p>
     <p class="card-text">likes : ${$likeNumber}</p>
 </div>
 </div>`;
-    $sortList.appendChild($li);
-
-
-  
+  $sortList.appendChild($li);
 }
