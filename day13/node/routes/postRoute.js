@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 // 실습2 데이터
+
 const posts = require("./../public/posts");
 
 router
