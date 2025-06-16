@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  userId    Int      @id @default(autoincrement()) @map("userId")
+  email     String   @unique @map("email")
+  password  String   @map("password")
+  createdAt DateTime @default(now()) @map("createdAt")
+  updatedAt DateTime @updatedAt @map("updatedAt")
+
+  // user를 만들기 전에는 정보가 없어서 ? 붙여서 Nullable 적용
+  userInfo UserInfos?
+  posts    Posts[]
+
+  @@map("Users")
+}
+
+model UserInfos {
+  userInfoId   Int      @id @default(autoincrement())
+  userId       Int      @unique
+  name         String
+  age          Int?
+  gender       String?
+  profileImage String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user Users @relation(fields: [userId], references: [userId], onDelete: Cascade)
+}
+
+model Posts {
+  postId    Int      @id @default(autoincrement()) @map("postId")
+  userId    Int      @map("userId")
+  title     String   @map("title")
+  content   String   @map("content") @db.Text
+  createdAt DateTime @default(now()) @map("createdAt")
+  updatedAt DateTime @updatedAt @map("updatedAt")
+
+  user Users @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  @@map("Posts")
+}
