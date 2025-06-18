@@ -53,5 +53,16 @@ const test = [];
  * 
  * git checkout test
  * 
+ * git checkout -b test2 => 생성과 동시에 이동
+ * 
+ * git merge test2  
+ * 
+ * git branch -d test2
+ * 
  * main 
+ * 
+ * 
+ * 1. 
+ * 
+ * 
  */

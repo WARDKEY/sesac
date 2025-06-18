@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>localStorage 테스트</title>
+  </head>
+  <body>
+    <button id="saveBtn">값 저장하기</button>
+    <button id="checkBtn">값 확인하기</button>
+    <p id="result"></p>
+    <script>
+      document.getElementById("saveBtn").addEventListener("click", function () {
+        localStorage.setItem("test", "테스트 값입니다");
+        document.getElementById("result").textContent = "저장 완료!";
+      });
+      document
+        .getElementById("checkBtn")
+        .addEventListener("click", function () {
+          const value = localStorage.getItem("test");
+          if (value) {
+            document.getElementById(
+              "result"
+            ).textContent = `저장된 값: ${value}`;
+          } else {
+            document.getElementById("result").textContent =
+              "저장된 값이 없습니다.";
+          }
+        });
+    </script>
+  </body>
+</html>
