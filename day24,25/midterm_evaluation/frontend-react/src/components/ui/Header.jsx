@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 function Header({ currentUser, onLogout }) {
   useEffect(() => {
-    console.log(currentUser);
   }, [currentUser]);
 
   return (

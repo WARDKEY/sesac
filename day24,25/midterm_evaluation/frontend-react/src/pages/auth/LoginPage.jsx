@@ -1,45 +1,58 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { users } from "../../utils/data";
+import { useAuth } from "../../context/AuthContext";
+import { userAPI } from "../../utils/data";
 
-function LoginPage({ currentUser, onLogIn }) {
+function LoginPage() {
   const navigate = useNavigate();
 
+  // 상태 관리할 값들
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  // context에서 꺼내옴
+  const { currentUser, login } = useAuth();
+
+  // 로그인 상태라면 /todo로 이동
   useEffect(() => {
     if (currentUser) {
       navigate("/todo");
     }
   }, [currentUser, navigate]); // currentUser 값이 바뀌거나 url이 바뀌었을 때 검증
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true); // 로그인 진행 중
 
     // 로그인 검사
     // 입력 값이 없는 경우
     if (!email || !password) {
       setErrorMessage("모든 항목을 입력해주세요.");
+      setLoading(false);
       return;
     }
 
-    // 유저 찾음
-    const foundUser = users.find(
-      (user) => user.email === email && user.password === password
-    );
+    try {
+      const result = await userAPI.login(email, password);
 
-    // 로그인 성공
-    if (foundUser) {
-      onLogIn({ email: foundUser.email });
-      navigate("/todo");
-    } else {
+      if (result.success) {
+        console.log("LoginPage의 result.user === " + result.user.email);
+
+        login({ email: result.user.email });
+        navigate("/todo");
+      }
+    } catch (e) {
       setErrorMessage("로그인에 실패하였습니다.");
-      // 로그인 샐패
+      return;
+    } finally {
+      setLoading(false);
     }
   };
 
+  // 로그인 편의 메서드
   const handleTestAccountClick = (email, password) => {
     setEmail(email);
     setPassword(password);
@@ -64,8 +77,9 @@ function LoginPage({ currentUser, onLogIn }) {
                 className="form-control"
                 id="email"
                 placeholder="name@example.com"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)} // input 입력값 상태 지정
                 value={email}
+                disabled={loading} // 로딩이 진행 중이면 입력 불가
               ></input>
             </div>
             <div className="mb-3">
@@ -79,14 +93,31 @@ function LoginPage({ currentUser, onLogIn }) {
                 placeholder="비밀번호"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
+                disabled={loading}
               ></input>
             </div>
             <p id="errorMessage" className="text-danger text-center">
               {errorMessage}
             </p>
             <div className="d-grid">
-              <button type="submit" className="btn btn-primary">
-                로그인
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    >
+                    </span>
+                      로그인 중...
+                  </>
+                ) : (
+                  "로그인"
+                )}
               </button>
             </div>
           </form>

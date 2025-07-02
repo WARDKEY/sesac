@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { todos } from "../../utils/data";
+import { useState } from "react";
 
 function TodoForm({ show, onClose, onAddTodo }) {
   const [title, setTitle] = useState("");
@@ -9,13 +8,13 @@ function TodoForm({ show, onClose, onAddTodo }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (title.trim()) {
+    // title이 비었을 경우 .trim()을 안 넣으면 ""도 인식
+    if (!title.trim()) {
       alert("제목 입력해주세요");
       return;
     }
 
     const newTodo = {
-      id: todos.reduce((maxId, todos) => Math.max(maxId, todos.id) + 1, 0),
       title,
       description,
       isCompleted,
