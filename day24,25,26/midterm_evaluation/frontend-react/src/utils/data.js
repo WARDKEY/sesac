@@ -1,4 +1,4 @@
-export const initialTodos = [
+const initialTodos = [
   {
     id: 1,
     title: "HTML 기본 태그 복습",
@@ -181,7 +181,7 @@ export const initialTodos = [
   },
 ];
 
-export const initialUsers = [
+const initialUsers = [
   { email: "user1@example.com", password: "password123" },
   { email: "admin@example.com", password: "adminpass" },
   { email: "guest@example.com", password: "guest" },
@@ -191,52 +191,94 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const todoAPI = {
   async fetchTodos() {
-    await delay(4000);
+    await delay(800); // API 호출 시뮬레이션
     return [...initialTodos];
   },
 
-  // 새로운 할 일 추가
   async addTodo(todo) {
-    await delay(4000);
+    await delay(500);
     const newTodo = {
       ...todo,
-      id:
-        initialTodos.reduce(
-          (maxId, todos) => Math.max(maxId, initialTodos.id),
-          0
-        ) + 1,
+      id: Date.now(), // 임시 ID 생성
     };
     return newTodo;
   },
 
   async toggleTodo(todoId, isCompleted) {
-    await delay(3000);
+    await delay(300);
     return { id: todoId, isCompleted };
   },
 
-  // 삭제 확인 처리
   async deleteTodo(todoId) {
-    await delay(3000);
+    await delay(300);
     return todoId;
   },
 
-  // 할 일 완료 상태 토글
   async updateTodo(todoId, updates) {
-    await delay(4000);
+    await delay(400);
     return { id: todoId, ...updates };
   },
 };
 
 export const userAPI = {
   async login(email, password) {
-    await delay(3000);
+    await delay(600);
     const user = initialUsers.find(
-      (user) => user.email === email && user.password === password
+      (u) => u.email === email && u.password === password
     );
-
     if (user) {
       return { success: true, user: { email: user.email } };
     }
-    throw new Error("로그인 실패");
+    throw new Error("Invalid credentials");
   },
+};
+
+export const todoStats = {
+  calculateStats(todos) {
+    const total = todos.length;
+    const completed = todos.filter((todo) => todo.isCompleted).length;
+    const pending = total - completed;
+    const completionRate =
+      total > 0 ? Math.round((completed / total) * 100) : 0;
+
+    return {
+      total,
+      completed,
+      pending,
+      completionRate,
+    };
+  },
+
+  filteredTodos(todos, filter) {
+    switch (filter) {
+      case "completed":
+        return todos.filter((todo) => todo.isCompleted);
+      case "pending":
+        return todos.filter((todo) => !todo.isCompleted);
+      default:
+        return todos;
+    }
+  },
+
+  sortTodos(todos, sortBy = "id") {
+    return [...todos].sort((a, b) => {
+      switch (sortBy) {
+        case "title":
+          return a.title.localeCompare(b.title);
+        case "completed":
+          return a.isCompleted === b.isCompleted ? 0 : a.isCompleted ? 1 : -1;
+        case "id":
+        default:
+          return a.id - b.id;
+      }
+    });
+  },
+};
+
+export const handleAPIError = (error) => {
+  console.error("API Error:", error);
+  return {
+    success: false,
+    error: error.message || "An unexpected error occurred",
+  };
 };

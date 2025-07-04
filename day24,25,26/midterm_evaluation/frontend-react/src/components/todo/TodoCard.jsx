@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoCard({ todo, onToggleComplete, onDeleteTodo }) {
+function TodoCard({ todo, onToggleComplete, onDeleteTodo, isLoading = false }) {
   return (
     <div
       className={`card h-100 shadow-sm ${todo.isCompleted ? "bg-light" : ""}`}
@@ -34,6 +34,7 @@ function TodoCard({ todo, onToggleComplete, onDeleteTodo }) {
                 checked={todo.isCompleted}
                 id={`toggle-${todo.id}`}
                 onChange={() => onToggleComplete(todo.id)} // todo id로 특정 카드 상태 변경
+                disabled={isLoading}
               />
               <label
                 className="form-check-label small"
@@ -46,6 +47,7 @@ function TodoCard({ todo, onToggleComplete, onDeleteTodo }) {
               className="btn btn-outline-secondary btn-sm"
               type="button"
               onClick={() => onDeleteTodo(todo.id)}
+              disabled={isLoading}
             >
               삭제
             </button>

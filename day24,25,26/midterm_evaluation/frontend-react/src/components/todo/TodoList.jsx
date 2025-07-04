@@ -2,7 +2,13 @@ import React, { useMemo } from "react";
 import TodoCard from "./TodoCard";
 import EmptyState from "../ui/EmptyState";
 
-function TodoList({ todos, currentFilter, onToggleComplete, onDeleteTodo }) {
+function TodoList({
+  todos,
+  currentFilter,
+  onToggleComplete,
+  onDeleteTodo,
+  isLoading = false,
+}) {
   // 완료, 미완료 필터링
   // todos, currentFilter 바뀌기 전까지 실행 X
   const filteredTodos = useMemo(
@@ -40,6 +46,7 @@ function TodoList({ todos, currentFilter, onToggleComplete, onDeleteTodo }) {
             onToggleComplete={onToggleComplete}
             onDeleteTodo={onDeleteTodo}
             todo={todo}
+            isLoading={isLoading}
           />
         </div>
       ))}

@@ -1,16 +1,10 @@
-import React, { useMemo } from "react";
-
-function TodoStatus({ todos }) {
-  const stats = useMemo(() => {
-    // 완료된 일 개수
-    const completedCount = todos.filter((todo) => todo.isCompleted).length;
-    // 총 일 개수
-    const totalCount = todos.length;
-    // 퍼센트 계산
-    const progressPercentage =
-      totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
-    return { completedCount, totalCount, progressPercentage };
-  }, [todos]);
+function TodoStats({ stats }) {
+  // const stats = useMemo(() => {
+  //   const completedCount = todos.filter(todo => todo.isCompleted).length;
+  //   const totalCount = todos.length
+  //   const progressPercentage = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+  //   return { completedCount, totalCount, progressPercentage }
+  // }, [todos])
 
   return (
     <div>
@@ -20,7 +14,7 @@ function TodoStatus({ todos }) {
         style={{ height: "25px" }}
       >
         <p className="text-muted mb-0">
-          총 {stats.totalCount}개 중 {stats.completedCount}개 완료
+          총 {stats.totalCount}개 중 {stats.completedCount} 개 완료
         </p>
         {stats.totalCount > 0 && (
           <div
@@ -28,6 +22,7 @@ function TodoStatus({ todos }) {
             style={{ maxWidth: "300px", height: "100%" }}
           >
             <div
+              Add
               className="progress-bar bg-success"
               role="progressbar"
               style={{ width: `${stats.progressPercentage}%` }}
@@ -35,7 +30,7 @@ function TodoStatus({ todos }) {
               aria-valuemin="0"
               aria-valuemax="100"
             >
-              {stats.progressPercentage}
+              {stats.progressPercentage}%
             </div>
           </div>
         )}
@@ -44,4 +39,4 @@ function TodoStatus({ todos }) {
   );
 }
 
-export default TodoStatus;
+export default TodoStats;
