@@ -51,6 +51,7 @@ class Cashier {
   }
 }
 
+// 테스트 코드
 const customer = new Customer("김철수");
 const cashier = new Cashier("최은지");
 
