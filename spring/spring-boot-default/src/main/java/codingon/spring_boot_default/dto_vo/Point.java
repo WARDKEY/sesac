@@ -4,7 +4,6 @@ package codingon.spring_boot_default.dto_vo;
 
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
