@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- js -->
+    <script src="/js/pr.js" defer></script>
+</head>
+<body>
+<div id="form-container">
+    <form method="POST" class="form-card" id="form_post">
+        <button type="button" onclick="postForm();">전송</button>
+        <h3>폼 전송 - 실습</h3>
+        이름 <input type="text" name="name" placeholder="이름"/><br/>
+
+        <span>성별 </span>
+        <input type="radio" name="gender" value="male"> 남자
+        <input type="radio" name="gender" value="female"> 여자
+        <br>
+
+        <span>생년월일</span>
+        <select name="year">
+            <option value="1950" selected>1950</option>
+            <option value="1951">1951</option>
+            <option value="1952">1952</option>
+        </select>
+        년
+        <select name="month">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        월
+        <select name="day">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        일
+        <br>
+
+        <span>관심사</span>
+        <input type="checkbox" name="hobby" value="여행">여행
+        <input type="checkbox" name="hobby" value="패션">패션
+        <input type="checkbox" name="hobby" value="음식">음식
+        <br/>
+
+
+    </form>
+</div>
+</body>
+</html>
