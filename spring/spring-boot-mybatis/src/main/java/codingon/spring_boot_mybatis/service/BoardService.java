@@ -24,7 +24,7 @@ public class BoardService {
         return boardMapper.findAllByWriter(findBoardDTO.getWriter());
     }
 
-    public List<Board> findAllBoards(){
+    public List<Board> findAllBoards() {
         return boardMapper.findAll();
     }
 
@@ -36,7 +36,6 @@ public class BoardService {
     public void deleteBoard(Long id) {
         boardMapper.deleteBoard(id);
     }
-
 
     private Board convertToEntity(BoardDTO boardDTO) {
         Board board = new Board();

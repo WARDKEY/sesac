@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface BoardMapper {
 
+    /*
     @Insert("INSERT INTO boards (title, content, writer) VALUES (#{title}, #{content}, #{writer})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void createBoard(Board board);
@@ -23,10 +24,20 @@ public interface BoardMapper {
     @Select("SELECT * FROM boards")
     List<Board> findAll();
 
-
     @Update("UPDATE boards SET title = #{title}, content = #{content} WHERE id = #{id}")
     void updateBoard(BoardDTO boardDTO);
 
     @Delete("DELETE FROM boards WHERE id = #{id}")
+    void deleteBoard(Long id);
+     */
+
+    void createBoard(Board board);
+
+    List<Board> findAllByWriter(String writer);
+
+    List<Board> findAll();
+
+    void updateBoard(BoardDTO boardDTO);
+
     void deleteBoard(Long id);
 }
